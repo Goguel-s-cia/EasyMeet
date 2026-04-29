@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criar Grupo - EasyMeet</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <a href="grupos.html" class="back-btn">← Voltar</a>
+
+    <div class="header">
+      <h1>Novo grupo</h1>
+      <p>Preencha as informações abaixo</p>
+    </div>
+
+    <form>
+      <div class="form-group">
+        <label for="groupName">Nome do grupo</label>
+        <input type="text" id="groupName" placeholder="Ex: Desenvolvimento Web" required>
+      </div>
+
+      <div class="form-group">
+        <label for="groupDescription">Descrição</label>
+        <textarea id="groupDescription" placeholder="Descreva o objetivo do grupo..." required></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-success btn-block" style="cursor: pointer;">
+        Criar grupo
+      </button>
+    </form>
+  </div>
+</body>
+</html>
