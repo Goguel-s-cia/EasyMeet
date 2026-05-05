@@ -16,8 +16,8 @@
     </div>
     <nav class="sidebar-nav">
       <a href="#" class="active">Visão Geral (Grupos)</a>
-      <a href="#">+ Criar novo grupo</a>
-      <a href="#">+ Criar novo evento</a>
+      <a href="#" id="btn-open-grupo">+ Criar novo grupo</a>
+      <a href="#" id="btn-open-evento">+ Criar novo evento</a>
       <a href="#">Configurações</a>
     </nav>
   </aside>
@@ -96,6 +96,57 @@
     </div>
 
   </main>
+
+  <section class="forms-panel hidden" id="forms-panel">
+    <div class="form-card hidden" id="card-criar-grupo">
+      <button type="button" class="close-panel" aria-label="Fechar">×</button>
+      <h2>Criar novo grupo</h2>
+      <form id="form-criar-grupo">
+        <label for="grupo-nome">Nome do grupo</label>
+        <input type="text" id="grupo-nome" name="grupoNome" placeholder="Ex: Design UX" required>
+
+        <label for="grupo-descricao">Descrição</label>
+        <textarea id="grupo-descricao" name="grupoDescricao" rows="3" placeholder="Descrição do grupo" required></textarea>
+
+        <label for="grupo-categoria">Categoria</label>
+        <select id="grupo-categoria" name="grupoCategoria">
+          <option value="web">Desenvolvimento Web</option>
+          <option value="backend">Programação Backend</option>
+          <option value="mobile">Mobile Dev</option>
+          <option value="outros">Outros</option>
+        </select>
+
+        <button type="submit" class="btn btn-primary">Criar grupo</button>
+      </form>
+    </div>
+
+    <div class="form-card hidden" id="card-criar-evento">
+      <button type="button" class="close-panel" aria-label="Fechar">×</button>
+      <h2>Criar novo evento</h2>
+      <form id="form-criar-evento">
+        <label for="evento-nome">Nome do evento</label>
+        <input type="text" id="evento-nome" name="eventoNome" placeholder="Ex: Oficina de JavaScript" required>
+
+        <label for="evento-descricao">Descrição</label>
+        <textarea id="evento-descricao" name="eventoDescricao" rows="3" placeholder="Detalhes do evento" required></textarea>
+
+        <label for="evento-data">Data e hora</label>
+        <input type="datetime-local" id="evento-data" name="eventoData" required>
+
+        <label for="evento-grupo">Grupo associado</label>
+        <select id="evento-grupo" name="eventoGrupo">
+          <option value="desenvolvimento-web">Desenvolvimento Web</option>
+          <option value="programacao-backend">Programação Backend</option>
+          <option value="mobile-dev">Mobile Dev</option>
+        </select>
+
+        <label for="evento-participantes">Número de participantes</label>
+        <input type="number" id="evento-participantes" name="eventoParticipantes" min="1" placeholder="0">
+
+        <button type="submit" class="btn btn-primary">Criar evento</button>
+      </form>
+    </div>
+  </section>
 
 </body>
 </html>

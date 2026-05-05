@@ -24,6 +24,10 @@ body {
   color: var(--text-dark);
 }
 
+.hidden {
+  display: none !important;
+}
+
 
 .sidebar {
   width: 260px;
@@ -82,6 +86,90 @@ body {
   padding: 24px;
   overflow-x: auto;
   overflow-y: hidden;
+}
+
+.forms-panel {
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+  background: var(--bg-light);
+  border-left: 1px solid var(--border-color);
+  min-height: calc(100vh - 48px);
+  overflow-y: auto;
+}
+
+.form-card {
+  position: relative;
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.close-panel {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  color: var(--text-light);
+  font-size: 22px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+}
+
+.close-panel:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.form-card h2 {
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: var(--text-dark);
+}
+
+.form-card form {
+  display: grid;
+  gap: 12px;
+}
+
+.form-card label {
+  font-size: 13px;
+  color: var(--text-dark);
+}
+
+.form-card input,
+.form-card textarea,
+.form-card select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text-dark);
+  font-size: 14px;
+}
+
+.form-card textarea {
+  resize: vertical;
+}
+
+.form-card input:focus,
+.form-card textarea:focus,
+.form-card select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(90, 103, 216, 0.12);
+}
+
+.form-card .btn {
+  width: fit-content;
 }
 
 .kanban-column {
