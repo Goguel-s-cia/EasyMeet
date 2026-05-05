@@ -5,21 +5,97 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EasyMeet - Sistema de Eventos</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js"></script>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
+
+  <aside class="sidebar">
+    <div class="sidebar-header">
       <h1>EasyMeet</h1>
-      <p>Gerenciamento de eventos em grupo</p>
+      <p>Gerenciamento de eventos</p>
     </div>
-    <div class="text-center">
-      <p style="margin-bottom: 24px; color: #718096; font-size: 14px; line-height: 1.6;">
-        Crie eventos, organize grupos e confirme sua presença.
-      </p>
-      <a href="grupos.html" class="btn btn-primary btn-block" style="font-size: 14px; padding: 12px 20px; text-decoration: none; display: block;">
-        Começar
-      </a>
+    <nav class="sidebar-nav">
+      <a href="#" class="active">Visão Geral (Grupos)</a>
+      <a href="#">+ Criar novo grupo</a>
+      <a href="#">+ Criar novo evento</a>
+      <a href="#">Configurações</a>
+    </nav>
+  </aside>
+
+
+  <main class="kanban-board">
+    <div class="kanban-column">
+      <div class="column-header">
+        <h3>Desenvolvimento Web</h3>
+        <p>Grupos de estudo de web</p>
+      </div>
+      
+      <div class="column-content">
+        <div class="event-card">
+          <h4>Estudar HTML e CSS</h4>
+          <p>Revisão de conceitos de HTML5 e CSS3</p>
+          <div class="event-details">
+            <small><strong>Data:</strong> 20/04/2026 às 14:00</small>
+            <small><strong>Participantes:</strong> 2</small>
+          </div>
+          <div class="event-info">
+            <button class="btn btn-success">Confirmar presença</button>
+            <span class="badge badge-warning">Não confirmado</span>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <h4>Projeto Final do Semestre</h4>
+          <p>Apresentação dos projetos finais de web</p>
+          <div class="event-details">
+            <small><strong>Data:</strong> 25/04/2026 às 10:00</small>
+            <small><strong>Participantes:</strong> 3</small>
+          </div>
+          <div class="event-info">
+            <button class="btn btn-success">Confirmar presença</button>
+            <span class="badge badge-warning">Não confirmado</span>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+
+    <div class="kanban-column">
+      <div class="column-header">
+        <h3>Programação Backend</h3>
+        <p>Desenvolvimento server-side</p>
+      </div>
+      
+      <div class="column-content">
+        <div class="event-card">
+          <h4>Debate sobre Frameworks</h4>
+          <p>Discutindo Express e Spring</p>
+          <div class="event-details">
+            <small><strong>Data:</strong> 22/04/2026 às 15:30</small>
+            <small><strong>Participantes:</strong> 5</small>
+          </div>
+          <div class="event-info">
+            <button class="btn btn-danger">Cancelar presença</button>
+            <span class="badge badge-success">Confirmado</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="kanban-column">
+      <div class="column-header">
+        <h3>Mobile Dev</h3>
+        <p>Desenvolvimento de aplicativos</p>
+      </div>
+      
+      <div class="column-content">
+        <div class="empty-state">
+          <p>Nenhum evento programado.</p>
+          <button class="btn btn-primary" style="margin-top: 10px;">Criar evento</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
 </body>
 </html>
