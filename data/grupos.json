@@ -1,0 +1,12 @@
+[
+  {
+    "id": "dev-web",
+    "titulo": "Desenvolvimento Web",
+    "descricao": "Grupos de estudo de web"
+  },
+  {
+    "id": "backend",
+    "titulo": "Programação Backend",
+    "descricao": "Desenvolvimento server-side"
+  }
+]

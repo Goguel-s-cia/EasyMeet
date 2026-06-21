@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "grupoId": "dev-web",
+    "titulo": "Estudar HTML e CSS",
+    "descricao": "Revisão de conceitos de HTML5 e CSS3",
+    "data": "2026-04-20T14:00",
+    "participantes": 2,
+    "confirmado": false
+  }
+]
