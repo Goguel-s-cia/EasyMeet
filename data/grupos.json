@@ -8,5 +8,10 @@
     "id": "backend",
     "titulo": "Programação Backend",
     "descricao": "Desenvolvimento server-side"
+  },
+  {
+    "id": "infraestrutura-e-nuvem",
+    "titulo": "Infraestrutura e nuvem",
+    "descricao": "programaçao em nuvem e infra"
   }
 ]

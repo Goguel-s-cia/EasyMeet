@@ -7,5 +7,32 @@
     "data": "2026-04-20T14:00",
     "participantes": 2,
     "confirmado": false
+  },
+  {
+    "id": 1782069090305,
+    "grupoId": "dev-web",
+    "titulo": "Palestra de React",
+    "descricao": "É uma grande palestra sobre react",
+    "data": "2026-06-30T07:15",
+    "participantes": 15,
+    "confirmado": false
+  },
+  {
+    "id": 1782069831155,
+    "grupoId": "backend",
+    "titulo": "Palestra de Java",
+    "descricao": "Uma palestra de Java",
+    "data": "2026-06-23T19:26",
+    "participantes": 35,
+    "confirmado": false
+  },
+  {
+    "id": 1782069858451,
+    "grupoId": "dev-web",
+    "titulo": "Palestra de Tailwind",
+    "descricao": "uma palestra de tailwind",
+    "data": "2026-06-25T19:27",
+    "participantes": 25,
+    "confirmado": false
   }
 ]
