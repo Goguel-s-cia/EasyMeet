@@ -104,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             configurarBotoesPresenca();
+            configurarDragAndDrop();
 
         } catch (erro) {
             console.error('Erro ao carregar o quadro:', erro);
@@ -209,6 +210,67 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Falha ao comunicar com o servidor.');
         }
     });
+
+    function configurarDragAndDrop() {
+        // Seleciona todos os cartões e as áreas onde eles podem ser soltos (as colunas)
+        const cartoes = document.querySelectorAll('.event-card');
+        const areasDeSoltura = document.querySelectorAll('.column-content');
+
+        // 1. Lógica para o cartão que está sendo arrastado
+        cartoes.forEach(cartao => {
+            cartao.addEventListener('dragstart', (e) => {
+                // Guarda o ID do evento na memória do navegador enquanto arrasta
+                e.dataTransfer.setData('text/plain', cartao.dataset.eventoId);
+                cartao.classList.add('dragging'); // Classe CSS para ficar meio transparente
+            });
+
+            cartao.addEventListener('dragend', () => {
+                cartao.classList.remove('dragging'); // Tira a transparência ao soltar
+            });
+        });
+
+        // 2. Lógica para a coluna que vai receber o cartão
+        areasDeSoltura.forEach(area => {
+            // "dragover" acontece o tempo todo enquanto o mouse passa por cima da coluna
+            area.addEventListener('dragover', (e) => {
+                e.preventDefault(); // Essencial: Por padrão, o HTML não deixa soltar elementos. Isso desativa o bloqueio.
+                area.classList.add('drag-over'); // Escurece o fundo pra mostrar que aceita
+            });
+
+            // Quando o mouse sai de cima da coluna sem soltar
+            area.addEventListener('dragleave', () => {
+                area.classList.remove('drag-over');
+            });
+
+            // Quando o usuário solta o clique do mouse
+            area.addEventListener('drop', async (e) => {
+                e.preventDefault();
+                area.classList.remove('drag-over');
+
+                // Resgata aquele ID salvo lá no "dragstart"
+                const eventoId = e.dataTransfer.getData('text/plain');
+                
+                // Descobre de qual grupo é essa coluna (subindo até achar a div pai)
+                const kanbanColumn = area.closest('.kanban-column');
+                const novoGrupoId = kanbanColumn.dataset.grupoId;
+
+                try {
+                    // Manda a atualização do evento pro Backend
+                    await fetch(`/api/eventos/${eventoId}/mover`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ novoGrupoId: novoGrupoId })
+                    });
+
+                    // Em vez de manipular o HTML na mão, recarrega o quadro do banco de dados,
+                    // garantindo assim que a tela e o JSON estão iguais.
+                    carregarQuadro();
+                } catch (erro) {
+                    console.error('Erro ao mover evento:', erro);
+                }
+            });
+        });
+    }
 
     openGrupo?.addEventListener('click', (event) => {
         event.preventDefault();

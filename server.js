@@ -29,7 +29,7 @@ app.get('/api/board', (req, res) => {
     }
 });
 
-// Post:Criar novo grupo
+// Post: Criar novo grupo
 app.post('/api/grupos', (req, res) => {
     try {
         const grupos = JSON.parse(fs.readFileSync(gruposPath, 'utf8'));
@@ -75,6 +75,33 @@ app.post('/api/eventos', (req, res) => {
         res.status(201).json({ mensagem: 'Evento criado com sucesso!', evento: novoEvento });
     } catch (error) {
         res.status(500).json({ erro: 'Erro ao salvar o evento no servidor.' });
+    }
+});
+
+// Put: Atualizar o grupo de um evento (Drag and Drop)
+app.put('/api/eventos/:id/mover', (req, res) => {
+    try {
+        const eventoId = parseInt(req.params.id); // Pega o ID na URL
+        const novoGrupoId = req.body.novoGrupoId; // Pega o novo grupo no corpo da requisição
+
+        const eventos = JSON.parse(fs.readFileSync(eventosPath, 'utf8'));
+        
+        // Procura em qual posição do array está esse evento
+        const index = eventos.findIndex(e => e.id === eventoId);
+
+        if (index === -1) {
+            return res.status(404).json({ erro: 'Evento não encontrado.' });
+        }
+
+        // Atualiza a propriedade grupoId do evento
+        eventos[index].grupoId = novoGrupoId;
+
+        // Salva de volta no arquivo eventos.json
+        fs.writeFileSync(eventosPath, JSON.stringify(eventos, null, 2));
+
+        res.json({ mensagem: 'Evento movido com sucesso!' });
+    } catch (error) {
+        res.status(500).json({ erro: 'Erro ao mover o evento no servidor.' });
     }
 });
 

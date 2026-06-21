@@ -254,6 +254,25 @@ body {
   font-size: 14px;
 }
 
+/* --- EFEITOS DE DRAG AND DROP --- */
+.event-card {
+  cursor: grab;
+}
+
+.event-card:active {
+  cursor: grabbing; 
+}
+
+.event-card.dragging {
+  opacity: 0.5;
+  transform: scale(0.98);
+}
+
+.column-content.drag-over {
+  background-color: rgba(90, 103, 216, 0.08); 
+  border-radius: 6px;
+}
+
 .btn {
   display: inline-block;
   padding: 6px 12px;
