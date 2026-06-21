@@ -1,0 +1,24 @@
+{
+  "name": "easymeet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Goguel-s-cia/EasyMeet.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Goguel-s-cia/EasyMeet/issues"
+  },
+  "homepage": "https://github.com/Goguel-s-cia/EasyMeet#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
